@@ -1,0 +1,118 @@
+.contact {
+    background-image: url(/img/contactbg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    &__logo {
+        margin-bottom: 40px;
+    }
+    svg {
+        margin-top: 72px;
+        * {
+            fill: white;
+        }
+    }
+    .container {
+        @include mid(true);
+        flex-direction: column;
+        padding-top: 96px;
+        padding-bottom: 19px;
+        .footer {
+            &__left {
+                p {
+                    color: white;
+                }
+                width: 100%;
+                @include flexbox(center, flex-start);
+                flex-direction: row-reverse;
+            }
+            &__top {
+                padding-bottom: 0;
+                padding-left: 30px;
+            }
+            &__bottom {
+                padding-top: 0;
+                text-align: right;
+                padding-right: 30px;
+            }
+        }
+    }
+    @include xs {
+        background-image: url(/img/contactMobilebg.jpg);
+        background-position: bottom;
+        &__logo {
+            display: none;
+        }
+        .container {
+            padding-top: 126px;
+            padding-bottom: 139px;
+            .arrow {
+                display: none;
+            }
+            .footer {
+                &__left {
+                    display: block;
+                }
+                &__top,
+                &__bottom {
+                    text-align: center;
+                    padding: 0;
+                    .empty {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Heaer Contact
+.header-contact {
+    .header__menu {
+        .container {
+            &::before {
+                content: none;
+            }
+        }
+    }
+}
+
+// Footer Contact
+.footer__contact {
+    height: 511px;
+    background: $primary-cl;
+    .container {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+    .container {
+        &::before {
+            content: none;
+        }
+    }
+    .footer__right {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    .footer__form {
+        width: 63%;
+    }
+    @include sm {
+        .footer__form {
+            width: 50%;
+        }
+    }
+    @include xs {
+        height: 215px;
+        .container {
+            display: none;
+        }
+        .creator {
+            margin-top: 0;
+            padding-top: 39px;
+        }
+    }
+}

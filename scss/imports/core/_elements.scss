@@ -1,0 +1,282 @@
+// css button, title, icon, elements...
+img {
+    max-width: 100%;
+}
+
+.backtotop-footer {
+    margin-bottom: 22px;
+    cursor: pointer;
+    img {
+        @include animation(rotateButton 3s linear forwards infinite);
+        @include transition($t);
+    }
+    @include keyframes(rotateButton) {
+        0% {
+            transform: perspective(100px) rotate(0deg);
+        }
+        25% {
+            transform: perspective(100px) rotateX(180deg) rotateY(0);
+        }
+        50% {
+            transform: perspective(100px) rotateX(180deg) rotateY(180deg);
+        }
+        75% {
+            transform: perspective(100px) rotateX(0) rotateY(180deg);
+        }
+        100% {
+            transform: perspective(100px) rotateX(0) rotateY(0);
+        }
+    }
+}
+
+.backtotop {
+    position: fixed;
+    @include size(40px);
+    border-radius: 50%;
+    border: 3px solid $second-cl;
+    z-index: 100;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    @include mid(true);
+    @include transition($t);
+    @include visible(0);
+    &.active {
+        @include visible(1);
+    }
+
+    svg {
+        width: 20px;
+        @include animation(rotateArrow 1s ease-out forwards infinite);
+        @include transition($t);
+        * {
+            @include transition($t);
+            fill: $second-cl;
+        }
+    }
+    @include keyframes(rotateArrow) {
+        0% {
+            @include transform(rotate(0));
+            @include transition($t);
+        }
+        50% {
+            @include transform(rotate(390deg));
+            @include transition($t);
+        }
+        100% {
+            @include transform(rotate(360deg));
+            @include transition($t);
+        }
+    }
+    @include minW(1024px) {
+        &:hover {
+            @include transform(scale(1.2));
+            @include transition($t);
+            border-color: black;
+            svg {
+                animation: none;
+                @include transition($t);
+                * {
+                    fill: black;
+                }
+            }
+        }
+    }
+}
+
+.more {
+    text-align: center;
+    width: 100px;
+    margin: 0 auto;
+    a {
+        cursor: pointer;
+        @include minW(1024px) {
+            &:hover {
+                .more__txt {
+                    @include transform(scale(1.1));
+                    @include transition($t);
+                }
+                img {
+                    @include transform(translateY(10px) scale(1.1));
+                    @include transition($t);
+                }
+            }
+        }
+    }
+    &__txt {
+        @include text(12px, pnSB, 30.48px, black, uppercase);
+    }
+}
+
+.btnmenu {
+    width: 40px;
+    position: relative;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    &::after,
+    &::before,
+    span {
+        background: $primary-cl;
+        width: 30px;
+        border-radius: 3px;
+        content: "";
+        display: block;
+        height: 3px;
+        margin: 6px 0;
+        @include transition(all 0.5s ease-in-out);
+    }
+    &.tranform {
+        z-index: 20;
+        @include transition(all 0.5s ease-in-out);
+
+        &::before {
+            @include transform(translateY(4px) rotate(-25deg));
+            width: 20px;
+            background: $white-cl;
+            @include transition(all 0.5s ease-in-out);
+        }
+        &::after {
+            background: $white-cl;
+            width: 20px;
+            @include transform(translateY(-4px) rotate(25deg));
+            @include transition(all 0.5s ease-in-out);
+        }
+        span {
+            background: $white-cl;
+        }
+    }
+}
+
+.smallbtn {
+    cursor: pointer;
+    @include mid(true);
+    @include text(12px, pnR, 30.48px, black, none);
+    span {
+        padding-right: 18px;
+    }
+    &.backtoall {
+        span {
+            padding-right: 28px;
+        }
+        img {
+            @include transform(rotate(90deg));
+        }
+    }
+}
+
+.slidebtn {
+    span {
+        padding: 0 19px;
+        position: relative;
+    }
+
+    .prebtn,
+    .nextbtn {
+        @include mid(true);
+    }
+    .nextbtn {
+        @include transition($t);
+        @include minW(1024px) {
+            &:hover {
+                svg {
+                    @include transform(rotate(-450deg) scale(1.2));
+                    @include transition($t);
+                }
+            }
+        }
+    }
+    .prebtn {
+        @include transition($t);
+        @include minW(1024px) {
+            &:hover {
+                svg {
+                    @include transform(rotate(450deg) scale(1.2));
+                    @include transition($t);
+                }
+            }
+        }
+        span {
+            &::after {
+                content: "";
+                @include size(2px, 11px);
+                @include absoluteCenter(top);
+                right: 0;
+                background: $black-bg-cl;
+            }
+        }
+    }
+    svg {
+        @include transform(rotate(-90deg));
+        &:first-child {
+            @include transform(rotate(90deg));
+        }
+    }
+}
+
+.book {
+    display: flex;
+    &__btn {
+        display: inline-block;
+        @include size(100px);
+        color: $black-cl;
+        background: $primary-cl;
+        border-radius: 15px;
+        @include mid(true);
+        flex-direction: column;
+        @include text(24px, pnEB, 30.48px, black, uppercase);
+        letter-spacing: -0.4px;
+        text-align: center;
+        cursor: pointer;
+        @include transition($t);
+        span {
+            font-size: 27px;
+        }
+        &.secondcolor {
+            background: $second-cl;
+            color: $primary-cl;
+        }
+        @include minW(1024px) {
+            &:hover {
+                @include transform(scale(1.2));
+                @include transition($t);
+            }
+        }
+    }
+
+    &__txt {
+        display: inline-block;
+        @include text(14px, pnR, 20px, white, none);
+        margin-left: 19px;
+        width: 115px;
+        @include transition($t);
+
+        &.left {
+            margin-left: 0;
+            margin-right: 19px;
+            text-align: right;
+            &.transform {
+                @include transform(translateX(-20px));
+                @include transition($t);
+            }
+        }
+        &.transform {
+            @include transform(translateX(20px));
+            @include transition($t);
+        }
+    }
+}
+
+.desc {
+    h4 {
+        @include text(12px, pnR, 30.48px, black, uppercase);
+    }
+    p {
+        @include text(12px, pnR, 20px, black, none);
+    }
+}

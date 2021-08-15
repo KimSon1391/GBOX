@@ -1,0 +1,16 @@
+// css loading
+.loading {
+    @include size(100vw, 100vh);
+    background: $white-cl;
+    @include mid(true);
+    font-size: 10px;
+    z-index: 100;
+    position: fixed;
+    @include transition($t);
+    @include visible(0);
+    overflow-y: hidden;
+    &.active {
+        @include visible(1);
+        @include transition($t);
+    }
+}

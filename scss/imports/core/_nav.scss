@@ -1,0 +1,54 @@
+// css navigator (Menu)
+.nav {
+    display: block;
+    position: fixed;
+    width: 67vw;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    background: $primary-cl;
+    @include transform(translateX(-100vw));
+    @include transition($t);
+
+    &.active {
+        @include transform(translateX(0));
+        @include transition($t);
+    }
+    ul {
+        @include mid(true);
+        flex-direction: column;
+        width: 100%;
+        padding: 40px 20px 20px 20px;
+        li {
+            width: 100%;
+        }
+        a {
+            display: inline-block;
+            padding: 1.7rem 0;
+            width: 100%;
+            color: $white-cl;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+    }
+}
+
+.bgopacity {
+    display: block;
+    position: fixed;
+    @include size(100vw, 100vh);
+    z-index: 5;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.261);
+    opacity: 0;
+    visibility: hidden;
+    @include transition($t);
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        @include transition($t);
+    }
+}

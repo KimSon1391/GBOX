@@ -1,0 +1,200 @@
+.rental {
+    margin-bottom: 79px;
+    .container {
+        padding: 0;
+        display: flex;
+    }
+    &__tab {
+        @include size(260px, 639px);
+        background: $second-cl;
+        margin-top: -1px;
+        padding: 73px 0 0 20px;
+        &-txt {
+            h2 {
+                @include text(32px, pnEB, 30.48px, white, none);
+                letter-spacing: -0.4px;
+                margin: 25px 0 25px;
+            }
+            h4 {
+                @include text(12px, pnR, 30.48px, white, uppercase);
+                letter-spacing: 3.2px;
+                margin-bottom: 20px;
+            }
+            p {
+                @include text(14px, pnR, 20px, white, none);
+            }
+        }
+    }
+    &__content {
+        padding: 72px 0 0 51px;
+        width: 60%;
+        &-top {
+            margin-bottom: 40px;
+        }
+        &-bottom {
+            .desc {
+                line-height: 20px;
+            }
+            .rental__form {
+                input {
+                    border: 1px solid black;
+                    height: 39px;
+                }
+            }
+        }
+        &-top,
+        &-bottom {
+            p {
+                @include text(12px, pnR, 46px, black, none);
+            }
+            h2 {
+                @include text(28px, pnEB, 30.48px, #39382f, none);
+                letter-spacing: -0.4px;
+            }
+        }
+        .book {
+            margin-top: 68px;
+            &__txt {
+                color: black;
+                width: 230px;
+            }
+        }
+    }
+    &__form {
+        display: flex;
+        input,
+        textarea {
+            &:focus {
+                outline: none;
+            }
+        }
+        input {
+            width: 100%;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        textarea {
+            @include size(100%, 89px);
+        }
+        &-left,
+        &-right {
+            width: 100%;
+        }
+        &-left {
+            padding-right: 39px;
+        }
+        &-right {
+            padding-left: 39px;
+        }
+        &.--last {
+            display: block;
+        }
+    }
+    &__tag {
+        &-wrap {
+            display: flex;
+        }
+        &-item {
+            display: inline-block;
+            @include size(39px);
+            background: black;
+            margin-right: 19px;
+            @include mid(true);
+            @include text(24px, DB, 102.44px, #b4b4b4, none);
+            letter-spacing: -0.4px;
+            @include transition($t);
+            cursor: pointer;
+            &.active {
+                background: $primary-cl;
+                border: 1px solid black;
+                color: black;
+                @include transition($t);
+            }
+            &:hover {
+                background: $primary-cl;
+                border: 1px solid black;
+                color: black;
+                @include transition($t);
+            }
+        }
+    }
+    @include sm {
+        &__tab {
+            width: 230px;
+        }
+        &__content {
+            width: 65%;
+        }
+        &__form {
+            &-left {
+                padding-right: 29px;
+            }
+            &-right {
+                padding-left: 29px;
+            }
+        }
+    }
+    @include xs {
+        margin-top: 32px;
+        .container {
+            display: block;
+            padding: 0 15px;
+        }
+        &__tab {
+            width: 100%;
+            display: flex;
+            padding: 0;
+            background: white;
+            height: 100%;
+            .yellowtag {
+                @include size(104px, 103px);
+                p {
+                    font-size: 12px;
+                    line-height: 17.46px;
+                    margin-bottom: -23px;
+                }
+                .number {
+                    font-size: 63.78px;
+                    line-height: 106.3px;
+                }
+            }
+            &-txt {
+                margin-left: 26px;
+                h2,
+                h4,
+                p {
+                    color: black;
+                }
+                h2 {
+                    margin: 0 0 20px 0;
+                }
+                h4 {
+                    margin-bottom: 0;
+                }
+                p {
+                    &:last-child {
+                        display: none;
+                    }
+                }
+            }
+        }
+        &__content {
+            padding: 40px 0 0 0;
+            width: 100%;
+            .book {
+                &__txt {
+                    font-size: 12px;
+                    line-height: 24px;
+                    width: 126px;
+                }
+            }
+        }
+        &__form {
+            display: block;
+            &-left,
+            &-right {
+                padding: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,136 @@
+// css footer
+.footer {
+    height: 696px;
+    .container {
+        padding: 50.8px 20px 0 20px;
+        display: flex;
+        width: 100%;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            @include size(100%, 1px);
+            top: 0;
+            left: 0;
+            background: $black-bg-cl;
+        }
+    }
+    &__left,
+    &__right {
+        width: 50%;
+        p {
+            @include text(12px, pnr, 30.48px, black, uppercase);
+            letter-spacing: 1.6px;
+        }
+    }
+    &__top {
+        padding-bottom: 14.8px;
+    }
+    &__bottom {
+        padding-top: 19.8px;
+    }
+    &__form {
+        width: 100%;
+        display: flex;
+        p {
+            @include text(12px, pnr, 66px, black, none);
+            margin-bottom: 2px;
+        }
+        &-left,
+        &-right {
+            width: 40%;
+            margin-right: 20px;
+        }
+        &-right {
+            position: relative;
+            button {
+                border: none;
+                color: $white-cl;
+                font-size: 10px;
+                text-transform: uppercase;
+                font-family: pnB;
+                background: $black-bg-cl;
+                @include size(50px, 20px);
+                position: absolute;
+                bottom: -20px;
+                right: 0;
+                cursor: pointer;
+                @include transition($t);
+                &:hover {
+                    background: $white-cl;
+                    border: 1px solid $black-cl;
+                    color: $black-cl;
+                    @include transition($t);
+                }
+            }
+        }
+        input,
+        textarea {
+            border: none;
+            width: 100%;
+            background: $primary-cl;
+            &:focus {
+                outline: none;
+            }
+        }
+        input {
+            border-bottom: 1px solid black;
+        }
+        textarea {
+            line-height: 35px;
+            background-image: url(/img/logo-icon/doubleLine.png);
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 93px;
+            margin-top: -9px;
+            @include overtext(1);
+        }
+    }
+    .creator {
+        @include mid(true);
+        flex-direction: column;
+        margin-top: 73px;
+        p {
+            text-align: center;
+            @include text(10px, pnR, 30.48px, black, uppercase);
+        }
+    }
+
+    &-about {
+        .container {
+            &::before {
+                content: none;
+            }
+        }
+    }
+
+    &__yellowbg {
+        background: $primary-cl;
+        height: 511px;
+        margin-top: -511px;
+    }
+
+    @include xs {
+        height: 503px;
+        .empty {
+            display: none;
+        }
+        &__left {
+            width: 100%;
+            text-align: center;
+        }
+        &__right {
+            display: none;
+        }
+        &__yellowbg {
+            height: 245px;
+            margin-top: -245px;
+        }
+        &__bottom {
+            padding-top: 0;
+        }
+        &__top {
+            padding-bottom: 0;
+        }
+    }
+}

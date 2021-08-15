@@ -1,0 +1,40 @@
+.allworks {
+    .project {
+        margin-top: 53.8px;
+        margin-bottom: 140px;
+        .more {
+            position: relative;
+            width: 100%;
+            @include mid(true);
+            .book {
+                position: absolute;
+                top: 0;
+                right: 0;
+                &__txt {
+                    color: black;
+                }
+            }
+        }
+        @include xs {
+            margin-bottom: 27px;
+
+            &__tab {
+                display: flex;
+            }
+            .more {
+                flex-direction: column-reverse;
+                .book {
+                    position: relative;
+                    @include mid(true);
+                    flex-direction: column;
+                    margin-bottom: 70px;
+                    &__txt {
+                        text-align: center;
+                        margin-right: 0;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

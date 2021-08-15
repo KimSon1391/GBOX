@@ -1,0 +1,112 @@
+// css header
+.header {
+    &__top {
+        background: $second-cl;
+        height: 72px;
+        .container {
+            @include size(100%);
+            @include flexbox(space-between, center);
+            position: relative;
+            .logo {
+                @include mid;
+            }
+            i {
+                @include animation(rotate 3s linear forwards infinite);
+                @include transition($t);
+                @include keyframes(rotate) {
+                    0% {
+                        transform: perspective(100px) rotate(0deg);
+                    }
+                    100% {
+                        transform: perspective(100px) rotateY(360deg);
+                    }
+                }
+            }
+        }
+    }
+
+    &__menu {
+        @include transition($t);
+
+        .container {
+            @include size(100%);
+            position: relative;
+            @include flexbox(space-between, center);
+            padding-bottom: 10.8px;
+            padding-top: 29.8px;
+            &::before {
+                content: "";
+                position: absolute;
+                @include size(100%, 1px);
+                bottom: 0;
+                left: 0;
+                background: $black-bg-cl;
+            }
+        }
+
+        li {
+            overflow: hidden;
+            a {
+                display: block;
+                @include size(100%);
+                @include text(12px, pnSB, 30.48px, black, uppercase);
+                @include transition($t);
+                position: relative;
+                &::after,
+                &::before {
+                    position: absolute;
+                    @include transition($t);
+                }
+                &::before {
+                    content: "";
+                    top: 100%;
+                    display: block;
+                    height: 3px;
+                    width: 100%;
+                    background-color: $primary-cl;
+                }
+                &::after {
+                    content: attr(data-hover);
+                    padding: 3px 0;
+                    top: 100%;
+                    left: 0;
+                    @include text(12px, pnSB, 30.48px, $primary-cl, uppercase);
+                }
+                &:hover {
+                    transform: translateY(-100%);
+                    @include transition($t);
+                }
+            }
+        }
+        &-mid {
+            display: flex;
+            align-items: center;
+            li {
+                margin: 0 31px;
+                a {
+                    // padding: 0 31px;
+                    @include size(100%);
+                }
+            }
+        }
+    }
+
+    @include xs {
+        &__top {
+            height: 59px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 20;
+        }
+        &__menu {
+            display: none;
+        }
+    }
+}
+
+@include xs {
+    main {
+        padding-top: 59px;
+    }
+}
