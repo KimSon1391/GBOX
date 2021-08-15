@@ -44,10 +44,10 @@
     &__gallery {
         background: #19191a;
         padding-bottom: 81px;
-        min-height: 100%;
+        height: 100%;
         .container {
             position: relative;
-            min-height: 100%;
+            height: 100%;
             .fullscreen {
                 position: absolute;
                 bottom: 75px;
@@ -89,7 +89,7 @@
         }
         &-item {
             cursor: pointer;
-            min-height: 100%;
+            height: 100%;
             position: relative;
             overflow: hidden;
             @include transition($t);
