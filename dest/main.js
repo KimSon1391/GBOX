@@ -137,24 +137,6 @@ nextBtn.on("click", function () {
 });
 
 //  cafe slider
-let $carousel2 = $(".cafe__gallery-flickity");
-$carousel2.flickity({
-  //Options
-  cellAlign: "left",
-  contain: true,
-  wrapAround: true,
-  prevNextButtons: false,
-  pageDots: false,
-  autoPlay: true,
-});
-let preBtn2 = $(".prebtn");
-let nextBtn2 = $(".nextbtn");
-preBtn.on("click", function () {
-  $carousel2.flickity("previous");
-});
-nextBtn.on("click", function () {
-  $carousel2.flickity("next");
-});
 
 //Gallery Photo Swiper
 var initPhotoSwipeFromDOM = function (gallerySelector) {
