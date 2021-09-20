@@ -53,8 +53,11 @@ $(document).ready(function () {
   //loading
   $(window).on("load", function () {
     // loading page
-    $(".loading").removeClass("active");
-
+    let loading = $(".loading");
+    loading.removeClass("active");
+    if (!loading.hasClass("active")) {
+      $("body").removeClass("noScroll");
+    }
     //change color SVG
     $(".svg").svgToInline();
 

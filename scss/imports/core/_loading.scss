@@ -4,7 +4,7 @@
     background: $white-cl;
     @include mid(true);
     font-size: 10px;
-    z-index: 100;
+    z-index: 999;
     position: fixed;
     @include transition($t);
     @include visible(0);
@@ -13,4 +13,9 @@
         @include visible(1);
         @include transition($t);
     }
+}
+
+body.noScroll {
+    overflow: hidden;
+    position: fixed;
 }
